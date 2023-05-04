@@ -54,19 +54,21 @@ let board, turn, winner
 //   3.1) Store the 9 elements that represent the squares on the page.
 /*----- cached element references -----*/
 const message = document.querySelector('h1')
-const playAgainBtn = document.querySelector('button')
-const modal = document.getElementById("myModal");
-const modalContent = document.querySelector(".modal-content");
-const modalText = document.getElementById("modalText");
+const playAgainBtn = document.querySelector('#playAgainBtn')
+const playAgainModal = document.getElementById("play-again-modal");
+const playAgainModalContent = document.querySelector(".play-again-modal-content");
+const playAgainModalText = document.getElementById("play-again-modal-text");
 const volumeToggleBtn = document.getElementById('volume-toggle');
+const startGameBtn = document.querySelector('#start-game-button');
+const startModal = document.querySelector('.start-modal')
 
 /*----- event listeners -----*/
 document.getElementById('board').addEventListener('click', handleMove)
 // 6) Handle a player clicking the replay button:
 //   6.1) Do steps 4.1 (initialize the state variables) and 4.2 (render).
 playAgainBtn.addEventListener('click', initialize);
-// Toggle startSound Volume Event Listener
 volumeToggleBtn.addEventListener('click', startMute);
+startGameBtn.addEventListener('click', initialize);
 /*----- functions -----*/
 
 // 4) Upon loading the app should:
@@ -74,7 +76,6 @@ volumeToggleBtn.addEventListener('click', startMute);
 //     4.1.1) Initialize the board array to 9 nulls to represent empty squares. The 9 elements will "map" to each square, where index 0 maps to the top-left square and index 8 maps to the bottom-right square.
 //     4.1.2) Initialize whose turn it is to 1 (player 'X'). Player 'O' will be represented by -1.
 //     4.1.3) Initialize winner to null to represent that there is no winner or tie yet. Winner will hold the player value (1 or -1) if there's a winner. Winner will hold a 'T' if there's a tie.
-initialize()
 
 function initialize() {
   board = [null, null, null, null, null, null, null, null, null]
@@ -83,11 +84,13 @@ function initialize() {
   startSound.currentTime = 0
   startSound.play()
   startSound.loop = true
-  modal.style.display = "none";
+  startModal.style.display = "none";
+  playAgainModal.style.display = "none";
   render()
 }
 
-// Mute Start Sound Toggle Between Music On And Music Off
+// Mute start sound
+
 function startMute () {
   startSound.muted = !startSound.muted
   if (startSound.muted) {
@@ -96,7 +99,6 @@ function startMute () {
     volumeToggleBtn.innerHTML = 'music on <img src="https://w7.pngwing.com/pngs/880/191/png-transparent-computer-icons-sound-icon-feedback-button-miscellaneous-text-internet.png" alt="Music On" />';;
   }
 }
-
 //   4.2) Render those state variables to the page:
 function render() {
   renderBoard()
@@ -125,10 +127,10 @@ function renderBoard() {
 
 
 function showModal() {
-  modalText.innerHTML = message.innerHTML
+  playAgainModalText.innerHTML = message.innerHTML
   playAgainBtn.style.margin = "auto";
   playAgainBtn.style.display = "block";
-  modal.style.display = "block";
+  playAgainModal.style.display = "block";
 }
 
 function renderMessage() {
