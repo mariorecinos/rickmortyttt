@@ -75,6 +75,15 @@ button {
   font-size: 4vmin;
 }
 
+button img {
+  display: inline-block;
+  width: 2.5vmin;
+  height: 2.5vmin;
+  margin-right: 0.5vmin;
+  vertical-align: middle;
+}
+
+
 button:disabled {
   background-color: lightgrey;
   color: darkgrey;

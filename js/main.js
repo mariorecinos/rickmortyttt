@@ -58,12 +58,15 @@ const playAgainBtn = document.querySelector('button')
 const modal = document.getElementById("myModal");
 const modalContent = document.querySelector(".modal-content");
 const modalText = document.getElementById("modalText");
+const volumeToggleBtn = document.getElementById('volume-toggle');
 
 /*----- event listeners -----*/
 document.getElementById('board').addEventListener('click', handleMove)
 // 6) Handle a player clicking the replay button:
 //   6.1) Do steps 4.1 (initialize the state variables) and 4.2 (render).
 playAgainBtn.addEventListener('click', initialize);
+// Toggle startSound Volume Event Listener
+volumeToggleBtn.addEventListener('click', startMute);
 /*----- functions -----*/
 
 // 4) Upon loading the app should:
@@ -79,9 +82,21 @@ function initialize() {
   winner = null
   startSound.currentTime = 0
   startSound.play()
+  startSound.loop = true
   modal.style.display = "none";
   render()
 }
+
+// Mute Start Sound Toggle Between Music On And Music Off
+function startMute () {
+  startSound.muted = !startSound.muted
+  if (startSound.muted) {
+    volumeToggleBtn.innerHTML = 'music off <img src="https://w7.pngwing.com/pngs/408/981/png-transparent-audio-mic-microphone-music-off-sound-volume-minimalisticons-icon-thumbnail.png" alt="Music Off" />';
+  } else {
+    volumeToggleBtn.innerHTML = 'music on <img src="https://w7.pngwing.com/pngs/880/191/png-transparent-computer-icons-sound-icon-feedback-button-miscellaneous-text-internet.png" alt="Music On" />';;
+  }
+}
+
 //   4.2) Render those state variables to the page:
 function render() {
   renderBoard()
