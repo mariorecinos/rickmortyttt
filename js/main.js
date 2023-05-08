@@ -119,19 +119,19 @@ function renderBoard() {
     squareEl.className = !sqVal ? 'avail' : '';
   })
 }
-//     4.2.2) Render a message:
-//       4.2.2.1) If winner has a value other than null (game still in progress), render whose turn it is - use the color name for the player, converting it to upper case.
-//       4.2.2.2) If winner is equal to 'T' (tie), render a tie message.
-//       4.2.2.3) Otherwise, render a congratulatory message to which player has won - use the color name for the player, converting it to uppercase.
-//   4.3) Wait for the user to click a square
 
-
+// display playAgainModal
 function showModal() {
   playAgainModalText.innerHTML = message.innerHTML
   playAgainBtn.style.margin = "auto";
   playAgainBtn.style.display = "block";
   playAgainModal.style.display = "block";
 }
+//     4.2.2) Render a message:
+//       4.2.2.1) If winner has a value other than null (game still in progress), render whose turn it is - use the color name for the player, converting it to upper case.
+//       4.2.2.2) If winner is equal to 'T' (tie), render a tie message.
+//       4.2.2.3) Otherwise, render a congratulatory message to which player has won - use the color name for the player, converting it to uppercase.
+//   4.3) Wait for the user to click a square
 
 function renderMessage() {
   if (winner === 'T') {
