@@ -32,18 +32,18 @@ h1 {
   z-index: 2
 }
 
-#board > div {
+#board>div {
   margin: 3vmin;
   background-color: white;
   border: 1vmin solid white;
   border-radius: 50%;
 }
 
-#board > div.avail {
+#board>div.avail {
   cursor: pointer;
 }
 
-#board > div.avail:hover {
+#board>div.avail:hover {
   border-color: grey;
 }
 
@@ -122,24 +122,35 @@ button:hover:not(:disabled) {
   text-align: center;
 }
 
-#start-button {
+#start-game-button {
   padding: 1rem 2rem;
   background-color: grey;
   color: white;
   border-radius: 2vmin;
   font-size: 4vmin;
-  animation: blink is infinite;
-  cursor: pointer
+  cursor: pointer;
+  animation: glowing 1300ms infinite;
 }
 
-#start-button:hover {
+#start-game-button:hover {
   background-color: white;
   color: grey;
 }
 
-@keyframes blink {
+@keyframes glowing {
+  0% {
+    background-color: #2ba805;
+    box-shadow: 0 0 3px #2ba805;
+  }
+
   50% {
-    opacity: 0;
+    background-color: #49e819;
+    box-shadow: 0 0 15px #49e819;
+  }
+
+  100% {
+    background-color: #2ba805;
+    box-shadow: 0 0 3px #2ba805;
   }
 }
 
@@ -149,19 +160,24 @@ button:hover:not(:disabled) {
 }
 
 .play-again-modal {
-  display: none; /* hide the modal by default */
-  position: fixed; /* position the modal relative to the viewport */
-  z-index: 3; /* make sure the modal is on top of everything else */
+  display: none;
+  /* hide the modal by default */
+  position: fixed;
+  /* position the modal relative to the viewport */
+  z-index: 3;
+  /* make sure the modal is on top of everything else */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* semi-transparent background */
 }
 
 .play-again-modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* center the modal vertically and horizontally */
+  margin: 15% auto;
+  /* center the modal vertically and horizontally */
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
