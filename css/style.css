@@ -49,8 +49,8 @@ h1 {
 
 #avatar {
   position: absolute;
-  width: 70%;
-  height: 70%;
+  width: 30vmin;
+  height: 30vmin%;
   background-size: contain;
   background-repeat: no-repeat;
   top: 50%;
@@ -59,11 +59,17 @@ h1 {
 }
 
 #avatar.left {
-  left: -120px;
+  left: auto;
+  background-position: left center;
+  width: 70%;
+  height: 70%;
 }
 
 #avatar.right {
-  right: -70%
+  right: auto;
+  background-position: right center;
+  width: 70%;
+  height: 70%
 }
 
 button {
@@ -202,4 +208,102 @@ button:hover:not(:disabled) {
 
 #play-again-button:hover {
   background-color: #3e8e41;
+}
+
+  @media (max-width: 425px) {
+    #avatar.left {
+      left: 1vmin;
+      background-position: left center;
+      width: 30vmin;
+      height: 50vmin;
+    }
+
+    #avatar.right {
+      right: 1vmin;
+      background-position: right center;
+      width: 50vmin;
+      height: 50vmin;
+    }
+
+    .play-again-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* center the modal vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 40vh;
+  }
+
+  }
+
+@media (min-width: 768px) {
+    #avatar.left {
+      left: 1vmin;
+      background-position: left center;
+      width: 25vmin;
+      height: 59vmin;
+    }
+
+    #avatar.right {
+      right: 1vmin;
+      background-position: right center;
+      width: 23vmin;
+      height: 59vmin;
+    }
+
+}
+
+@media (min-width: 1024px) {
+  #avatar.left {
+    left: 19vmin;
+    background-position: left center;
+    width: 25vmin;
+    height: 59vmin;
+  }
+
+  #avatar.right {
+    right: 20vmin;
+    background-position: right center;
+    width: 23vmin;
+    height: 59vmin;
+  }
+}
+
+@media (min-width: 1440px) {
+
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 25vmin);
+    grid-template-rows: repeat(3, 25vmin);
+    background-color: lightgrey;
+    background-image: url(https://i.imgur.com/Z7YOfiS.png);
+    background-size: cover;
+    border-radius: 5vmin;
+    z-index: 2;
+}
+  #avatar.left {
+    left: 30vmin;
+    background-position: left center;
+    width: 60vmin;
+    height: 71vmin;
+  }
+
+  #avatar.right {
+    right: 35vmin;
+    background-position: right center;
+    width: 50vmin;
+    height: 71vmin;
+  }
+
+  button {
+    margin-top: 2vmin;
+    padding: 1.5vmin;
+    background-color: grey;
+    color: white;
+    border-radius: 2vmin;
+    font-size: 4vmin;
+
 }
