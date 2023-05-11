@@ -21,7 +21,7 @@ const PLAYERS = {
 }
 // Display Character Avatar
 const AVATAR_LOOKUP = {
-  '1': "url('https://i.imgur.com/SXoZd0K.png')",
+  '1': "url('https://i.imgur.com/uuR94n4.png')",
   '-1': "url('https://i.imgur.com/0kNZ6du.png')",
 }
 // Player Sound Whenever A Player Turn Will Play
@@ -75,7 +75,7 @@ startGameBtn.addEventListener('click', initialize);
 //   4.1) Initialize the state variables:
 //     4.1.1) Initialize the board array to 9 nulls to represent empty squares. The 9 elements will "map" to each square, where index 0 maps to the top-left square and index 8 maps to the bottom-right square.
 //     4.1.2) Initialize whose turn it is to 1 (player 'X'). Player 'O' will be represented by -1.
-//     4.1.3) Initialize winner to null to represent that there is no winner or tie yet. Winner will hold the player value (1 or -1) if there's a winner. Winner will hold a 'T' if there's a tie.
+//     4.1.3) Initialize winner to null to represent that there is no winner or tie yet. Winner will hold the player value (1 or -1) if there's a winner. Winner will hold a 'T' if there's a tie. 
 
 function initialize() {
   board = [null, null, null, null, null, null, null, null, null]
@@ -147,7 +147,7 @@ function renderMessage() {
     message.innerHTML = `<span style="color: ${COLOR_LOOKUP[turn]}">${NAME_LOOKUP[turn].toUpperCase()}</span>'s Turn`;
     const avatarEl = document.getElementById('avatar');
     avatarEl.style.backgroundImage = AVATAR_LOOKUP[turn];
-    avatarEl.style.backgroundPosition = turn === 1 ? 'left' : 'right';
+    avatarEl.className = turn === 1 ? 'left' : 'right';
     PLAYER_AUDIO_LOOKUP[turn].currentTime = 1;
     PLAYER_AUDIO_LOOKUP[turn].play();
   }
@@ -196,4 +196,4 @@ function getWinner() {
   }
   if (board.includes(null)) return null;
   return 'T'
-}
+}	
