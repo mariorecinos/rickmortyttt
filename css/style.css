@@ -210,7 +210,14 @@ button:hover:not(:disabled) {
   background-color: #3e8e41;
 }
 
-  @media (max-width: 425px) {
+@media (max-width: 425px) {
+
+    .start-modal-background {
+    position: absolute;
+    width: 100%;
+    height: 74%;
+    object-fit: cover;
+}
     #avatar.left {
       left: 1vmin;
       background-position: left center;
@@ -240,6 +247,13 @@ button:hover:not(:disabled) {
   }
 
 @media (min-width: 768px) {
+
+  .start-modal-background {
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+}
     #avatar.left {
       left: 1vmin;
       background-position: left center;
